@@ -16,6 +16,7 @@ import argparse  # command line arguments
 
 parser = argparse.ArgumentParser(description="2D Procedural Landscape generator")
 parser.add_argument("-t", "--theme", type=str, help="theme for colour palette")
+parser.add_argument("-f", "--file", type=str, help="filename for output")
 args = parser.parse_args()
 
 # Iterative midpoint vertical displacement
@@ -167,7 +168,12 @@ def main():
         [layer_4, layer_3, layer_2, layer_1], width, height, colour_theme
     )
 
-    landscape.save(os.path.join(os.getcwd(),"testing.png"))
+    if args.file:
+        filename = args.file
+    else:
+        filename = os.path.join(os.getcwd(),"output.png")
+        
+    landscape.save(filename)
 
 
 if __name__ == "__main__":
