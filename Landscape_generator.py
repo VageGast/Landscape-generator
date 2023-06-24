@@ -167,7 +167,7 @@ def main():
         [layer_4, layer_3, layer_2, layer_1], width, height, colour_theme
     )
 
-    landscape.save(os.getcwd() + "\\testing.png")
+    landscape.save(os.path.join(os.getcwd(),"testing.png"))
 
 
 if __name__ == "__main__":
